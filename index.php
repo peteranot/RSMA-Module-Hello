@@ -1,3 +1,7 @@
+<?php 
+	include ('assets/php/function.php');
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -19,29 +23,23 @@
 			</style>
     </head>
     <body>
+		
 		<a href="index_admin.php">Pannel Admin</a>
+		
 		<br/><br/>
+		
 		<form method="POST">
+			
 			<label><u><b>Choix de la langue<b></u></label><br/>
 			<?php
-				require('assets/php/connexion.php'); // Connexion à la base de données
-				$sql = "SELECT * FROM `langues`"; //Afficher tout les langues
-
-				
-				// $result : Execute la requête sql definit dans la variable $sql
-				$result = $connect_db->query($sql);
-				
-				if ($result->num_rows > 0) {
+				if ($res_lang->num_rows > 0) {
 					//faire 
 					echo "<select name='langues' >";
 						// echo "<option name='option'>Choisir votre langue</option>";
 					//pour chaque
-					foreach($result as $k => $v){
+					foreach($res_lang as $k => $v){
 						//faire						
-							
 							echo "<option name='idLangue' value='".$v['translate']."' />";
-							//echo $v['id']." | ";
-							
 							echo $v['name'];
 							echo "</option>";									
 					}
@@ -57,6 +55,7 @@
 				//ferme la connexion
 				$connect_db->close();
 			?>
+			
 			<input type="text" name="prenom" placeholder="Prénom" required></input>
 			<input type="submit" name="btnValider" placeholder="Valider"></input>
 			
@@ -64,7 +63,6 @@
 			
 			<?php
 				if(isset($_POST['btnValider'])){
-					
 						// se connecter à mysql
 						require('assets/php/connexion.php');
 						// récupérer les valeurs 

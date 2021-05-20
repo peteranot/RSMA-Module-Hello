@@ -30,6 +30,7 @@
 		<label style="text-align:center">
 			<a href="index.php">Pannel Utilisateur</a>
 		</label>
+		
 		<div class="row" align="center">
 			<div class="col-md-12 titleHead">
 				<label style="text-align:center">
@@ -37,7 +38,9 @@
 				</label>
 			</div>
 		</div>
+		
 		<br/><br/>
+		
 		<div class="row" align="center">
 			<div class="col-md-12 titleHead">
 				<label style="text-align:center">
@@ -45,6 +48,11 @@
 				</label>
 			</div>
 		</div>
+		
+		
+		<!-- FORMULAIRE D'AJOUT D'UNE LANGUE -->
+		
+		
 		<div class="row" align="center">
 			<div class="col-md-12 divAddLangue">
                 <?php
@@ -66,7 +74,11 @@
                 ?>
             </div>
 		</div>
+		
+		<!-- FIN FORMULAIRE D'AJOUT D'UNE LANGUE -->
+		
 		<br/><br/>
+		
 		<div class="row" align="center">
 			<div class="col-md-12 titleHead">
 				<label style="text-align:center">
@@ -74,6 +86,9 @@
 				</label>
 			</div>
 		</div>
+		
+		<!-- TABLEAU DE LISTES DES LANGUES ET LA TRADUCTION -->
+		
         <div class="row"  align="center">
             <div class="col-md-12 divListeLangue">
                 <?php
@@ -100,9 +115,10 @@
 						foreach ($res_lang as $valeur) { //Boucle : Pour chaque resultat 
 
 							if (($etat == "ouvrir") && ($id_clique == $valeur['id'])) {
-											// action="index.php" à placer en dessou
 								echo '<form method="post">';
+									
 									echo "<input type='hidden' name='id_langue' value=" . $valeur['id'] . ">";
+										
 										echo "<tr>";
 
 											echo "<td>";
@@ -118,10 +134,12 @@
 											echo "</td>";
 
 										echo "<tr>";
+										
 								echo '</form>';
 
 							} else {
 								echo '<form method="post">';
+								
 									echo "<tr>";
 
 										echo "<td>";
@@ -133,21 +151,22 @@
 										echo "</td>";
 
 										echo "<td>";
-											// action="index.php" à placer juste en dessou
 												echo "<input type='submit' name='btn' value='Modifier'/>";
 												echo "<input type='hidden' name='id_langue' value=" . $valeur['id'] . ">";
 										echo "</td>";
+										
 										echo "<td>";
-											// action="index.php" à placer juste en dessou
 												echo "<input type='hidden' name='id_langue' value=" . $valeur['id'] . ">";
 												echo "<input type='submit' name='btn' value='Supprimer'/>";
 										echo "</td>";
 
 									echo "</tr>";
+									
 								echo '</form>';	
 							}
 						}
 						echo "</table>";
+						
 					} else { //sinon
 						//faire cela
 						echo "Il n'y a aucun résultats";
@@ -155,8 +174,6 @@
                 ?>
             </div>
 		</div>
-		
-		
-                 
+		         
     </body>
 </html>
