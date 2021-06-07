@@ -50,13 +50,11 @@
 		</div>
 		
 		
-		<!-- FORMULAIRE D'AJOUT D'UNE LANGUE -->
-		
-		
+		<!-- FORM ADD LANGUE -->
 		<div class="row" align="center">
 			<div class="col-md-12 divAddLangue">
                 <?php
-				// <!-- AJOUTER UNE LANGUE  -->
+				// <!-- ADD NEW LANGUE  -->
 					echo '<form  method="POST">';
 						echo '<br/>';
 						echo '<p>';
@@ -75,7 +73,6 @@
             </div>
 		</div>
 		
-		<!-- FIN FORMULAIRE D'AJOUT D'UNE LANGUE -->
 		
 		<br/><br/>
 		
@@ -87,16 +84,11 @@
 			</div>
 		</div>
 		
-		<!-- TABLEAU DE LISTES DES LANGUES ET LA TRADUCTION -->
 		
         <div class="row"  align="center">
             <div class="col-md-12 divListeLangue">
                 <?php
-					// CONDITIONS \\
-					// Afficher la liste des langues
-					//si $res_lang contient au moins une données 
 					if ($res_lang->num_rows > 0) {
-						//faire ceci
 						echo "<table>";
 							echo "<th>";
 								echo "Name";
@@ -112,7 +104,7 @@
 							echo "<th>";
 							echo "</th>";
 
-						foreach ($res_lang as $valeur) { //Boucle : Pour chaque resultat 
+						foreach ($res_lang as $valeur) { 
 
 							if (($etat == "ouvrir") && ($id_clique == $valeur['id'])) {
 								echo '<form method="post">';
@@ -137,7 +129,8 @@
 										
 								echo '</form>';
 
-							} else {
+							} 
+							else {
 								echo '<form method="post">';
 								
 									echo "<tr>";
@@ -167,13 +160,13 @@
 						}
 						echo "</table>";
 						
-					} else { //sinon
-						//faire cela
+					} 
+					else { 
+						
 						echo "Il n'y a aucun résultats";
 					}
                 ?>
             </div>
-		</div>
-		         
+		</div>         
     </body>
 </html>

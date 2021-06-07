@@ -4,6 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="fr">
+
     <head>
         <!-- META -->
         <meta charset="UTF-8">
@@ -16,11 +17,11 @@
 
         <title>Module - Hello</title>
 			
-			<style>
-				body{
-					margin: 50px;
-				}
-			</style>
+		<style>
+			body{
+				margin: 50px;
+			}
+		</style>
     </head>
     <body>
 		
@@ -29,16 +30,12 @@
 		<br/><br/>
 		
 		<form method="POST">
-			
 			<label><u><b>Choix de la langue<b></u></label><br/>
+			
 			<?php
 				if ($res_lang->num_rows > 0) {
-					//faire 
 					echo "<select name='langues' >";
-						// echo "<option name='option'>Choisir votre langue</option>";
-					//pour chaque
 					foreach($res_lang as $k => $v){
-						//faire						
 							echo "<option name='idLangue' value='".$v['translate']."' />";
 							echo $v['name'];
 							echo "</option>";									
@@ -46,13 +43,11 @@
 					
 					echo "</select>";
 				} 
-				//sinon 
 				else{
-					//faire
 						echo "0 résultas";
 					}
 				
-				//ferme la connexion
+				//close connexion bdd
 				$connect_db->close();
 			?>
 			
@@ -63,10 +58,11 @@
 			
 			<?php
 				if(isset($_POST['btnValider'])){
-						// se connecter à mysql
+						// connect bdd
 						require('assets/php/connexion.php');
-						// récupérer les valeurs 
+						// get prenom 
 						$prenom = $_POST['prenom'];
+						// get langues
 						$langue = $_POST['langues'];
 						echo "<br/><br/><textarea>";
 						echo $langue." ";

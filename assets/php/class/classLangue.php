@@ -3,37 +3,25 @@ include __DIR__."./../connexion.php";
 
 class langues {
     
-/** ============================ **\
-	// RECUPERER TOUT LES LANGUES \\
-/** ============================ **/
-
     /**
-     * Description of function 
+     * function get langues
      *
-     * @return $res_listLivres
+     * @return $res_lang
      */
     public function getLang(){
         global $connect_db; 
 
-        $req_lang = "SELECT * from langues" ; //$sql : contient la requete sql 
-        $res_lang = $connect_db->query($req_lang); //$result : execute la requete $sql
+        $req_lang = "SELECT * from langues" ; 
+        $res_lang = $connect_db->query($req_lang); 
 
         return $res_lang;
 
     }
 
-/** ============================ **\
-	// FIN RECUPERER TOUT LES LANGUES \\
-/** ============================ **/	
-	
-	
 	
 
-/** ============================ **\
-	// CREER / INSERTION  \\
-/** ============================ **/
     /**
-     * create hello into "langue"
+     * function create into "langue"
      *
      * @param string $name
      * @param string $translate
@@ -47,19 +35,10 @@ class langues {
 
     }
 	
-/** ============================ **\
-	// FIN CREER / INSERTION  \\
-/** ============================ **/
 	
-	
-	
-	
-/** ============================ **\
-	// SUPPRESSION \\
-/** ============================ **/
 
     /**
-     * Delete lang selected from "langue"
+     * function delete langue by id
      *
      * @param int $id 
      *
@@ -67,25 +46,14 @@ class langues {
     public function  deletelang($id){
         
         global $connect_db; 
-        //sql to delete a record
+		
         $sql_delete = "DELETE FROM langues WHERE id=".$id;
-
-        // execute la requête précédente
         $connect_db->query($sql_delete);
 
     }
- 
-/** ============================ **\
-	// FIN SUPPRESSION \\
-/** ============================ **/
-
-
-/** ============================ **\
-	// MISE A JOUR  \\
-/** ============================ **/
     
     /**
-     * Update DbShoop "livres"
+     * funciton update "langue" by id
      *
      * @param string $new_name 
      * @param string $new_translate 
@@ -99,10 +67,7 @@ class langues {
         $connect_db->query($sql_update);
 
     }
-	
-	/** ============================ **\
-	// FIN MISE A JOUR  \\
-	/** ============================ **/
+
 	
 }	
  
